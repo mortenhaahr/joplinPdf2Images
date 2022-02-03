@@ -96,7 +96,19 @@ def main():
     notebook_page_id = candidates[0]['id']
     pages = convert_from_path(pdf_path=os.path.join(
         cwd, pdfFileName), size=(1000, None))
-    page_body = ""
+    
+    # Get the current body for appending:
+    try:
+        response = requests.get(
+            f'http://localhost:41184/notes/{notebook_page_id}?fields=id,body', params=params)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as err:
+        print("Couldn't retrieve page body")
+        raise SystemExit(err)
+    body = response.json()
+
+    # Upload resources and update body
+    page_body = body['body'] + "\n"
     for i, page in enumerate(pages):
         filename = f'image{i}.jpg'
         image_path = f'{output_dir}/{filename}'
