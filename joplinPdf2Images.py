@@ -11,17 +11,6 @@ API_TOKEN = '7302229ee77697943426f8b38bba4c154c562f330020c3e9bed4950580cb0ce0807
 MIME = 'multipart/form-data'
 
 def main():
-    # Make sure pdf-file is given as argument
-    # if not (len(sys.argv) == 4 or len(sys.argv) == 5)  or sys.argv[1][-4:] != ".pdf":
-    #     print(f"Usage: {sys.argv[0]} <pdf-file> <path-to-zim-notebook> <zim-name> [img-start-number]")
-    #     exit(-1)
-
-    # if not os.path.isdir(sys.argv[2]):
-    #     print(f"The directory {sys.argv[2]} does not exist.")
-    #     exit(-1)
-
-    # img_start_number = 0 if len(sys.argv) == 4 else int(sys.argv[4])
-
     # Get parent folder:
     argv = sys.argv.copy() # Copy because we want to manipulate
     script_name = argv[0]
