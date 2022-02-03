@@ -122,7 +122,7 @@ def main():
             print(f"Failed to upload image: {i}. Exiting")
             raise SystemExit(err)
         body = response.json()
-        page_body += f"![{filename}](:/{body['id']})\n\n"
+        page_body += f"![{filename}](:/{body['id']})<br><br>\n"
     print("Done uploading images. Putting in note now")
 
     try:
