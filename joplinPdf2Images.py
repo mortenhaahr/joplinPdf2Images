@@ -52,7 +52,7 @@ def main():
     # Search for notes:
     try:
         response = requests.get(
-            f'http://localhost:41184/search?query="{tree[-1]}"', params=params)
+            f'http://localhost:41184/search?query=title:{tree[-1]}', params=params)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
         print("Couldn't ping the server")
